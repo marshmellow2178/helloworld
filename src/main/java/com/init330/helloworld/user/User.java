@@ -1,9 +1,11 @@
-package com.init330.helloworld.hello;
+package com.init330.helloworld.user;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 
 @Entity
 @Table(name = "users")
+@Getter
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,5 +20,9 @@ public class User {
         User user = new User();
         user.name = name;
         return user;
+    }
+
+    public void update(String name){
+        this.name = name;
     }
 }
